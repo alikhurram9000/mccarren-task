@@ -1,55 +1,66 @@
-# Challenge: Document Redaction with Tracking & Confidentiality Header
+# McCaren – Take-Home Project  
+### Word Document Redaction Add-in
 
-Create a button that will redact sensitive information from a Word document, add a confidentiality header, and enable the Tracking Changes feature to log these modifications.
+This project is a Microsoft Word add-in built with **TypeScript, React, and Vite**.  
+It automatically **redacts sensitive information**, adds a confidentiality header, and enables **Track Changes** to log all modifications.
 
-## Requirements:
+The add-in works in **Word Desktop** and **Word on the Web** (when sideloading is allowed).
 
-1. **Redact Sensitive Information**
-    - Retrieve the document's complete content
-    - Locate and identify sensitive information (emails, phone numbers, social security numbers)
-    - Replace this information with redaction markers in the document
-2. **Add Confidential Header**
-    - Insert a header at the top of the document stating "CONFIDENTIAL DOCUMENT"
-    - Ensure this header addition is tracked by the Tracking Changes feature
-3. **Enable Tracking Changes**
-    - Use the Office Tracking Changes API to enable tracking changes
-    - Make sure to only use Tracking Changes if the Word API is available
-    [Word JavaScript API requirement set 1.5 - Office Add-ins | Microsoft Learn](https://learn.microsoft.com/en-us/javascript/api/requirement-sets/word/word-api-1-5-requirement-set?view=word-js-preview)
+---
 
-## Technical Requirements
+## ✨ What this add-in does
 
-- Code must be with TypeScript.
-- You are free to use any framework or build tool (Vite, Next.js, etc.),  DON'T use the minimum setup of this repo.
-- Use self written CSS for styling instead of external libraries, we expect good design and craftsmanship.
-- The solution must run in Word on the web or Word desktop.
-- Don't create a public forked repository, otherwise your solution will be disqualified. Share your solution as a private repository or a zip file.
-- One of the evaluation criteria will be code quality, so please ensure your code is clean, well-structured, and follows best practices and crasftsmanship (non AI).
+When executed, the add-in:
 
+1. Enables **Track Changes** (if supported by the Word API)  
+2. Adds a header:  
+   **`CONFIDENTIAL DOCUMENT`**  
+3. Finds and replaces all sensitive data with **`REDACTED`**
 
-## Testing Your Solution
-Use the attached Document-To-Be-Redacted.docx file to test your solution. The document contains various instances of sensitive information that should be redacted when your add-in is executed.
+All changes are logged and visible in Word’s review panel.
 
-We will use a different document to evaluate your solution, so ensure that your redaction logic is robust and can handle various scenarios.
+---
 
+## 🔍 What gets redacted
 
-## Run the Challenge
+The engine detects and redacts all of the following:
 
-1. We recommend cloning the repository to your local machine to get started.
-2. `npm install`
-3. `npm start`
-   - Starts local server on port 3000.
-   - Compiles TypeScript.
-   - Attempts to sideload to Word.
+| Category | Examples |
+|--------|--------|
+| **Email** | `john.smith@email.com` |
+| **SSN** | `123-45-6789` |
+| **Partial SSN** | `last four digits 8234`, `SSN ending in 1234` |
+| **Phone numbers** | `(555) 123-4567`, `555-123-4567`, `+1 555 123 4567` |
+| **Credit cards** | `4532-1234-5678-9012` |
+| **Employee IDs** | `EMP-2024-5567`, `EMPID-2211` |
+| **Medical records** | `MRN-998877`, `MEDICAL-RECORD 998877` |
+| **Insurance policies** | `INS-44556677`, `POLICY 998877` |
+| **Account / Order numbers** | `ORDER-45782`, `ACCT-99221` |
+| **Date of birth (DOB)** | `DOB 03/15/1985`, `DATE OF BIRTH: 3/15/1985` |
+| **Birthdates** | `03/15/1985`, `3-15-1985` |
+| **Addresses** | Street-style postal addresses |
 
-If automatic sideloading fails, please [sideload the manifest manually](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing).
+The redaction engine is format-tolerant and works across tables, paragraphs, and mixed formatting.
 
+---
 
-## Submission
+## 🛠 Tech Stack
 
-1. Ensure your solution meets all the requirements outlined above.
-2. Share your solution as a zip file (without the node_modules folder).
-3. Include any necessary instructions to run and test your solution, BUT it should be straightforward to run following the steps in the "Run the Challenge" section.
-4. Submit your solution to yotam.segal@mccarren.ai before the deadline specified in the challenge announcement.
+- TypeScript  
+- React  
+- Vite  
+- Microsoft Word JavaScript API  
+- Office Add-in Debugging Tools  
 
-Good luck, and we look forward to seeing your innovative solutions!
+---
 
+## 🚀 How to Run
+
+Only **two commands** are needed.
+
+### 1️⃣ Install dependencies
+```bash
+npm install
+
+### 2️⃣ Start the add-in
+npm start
