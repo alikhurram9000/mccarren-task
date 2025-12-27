@@ -1,4 +1,4 @@
-# McCaren – Take-Home Project  
+# McCarren – Take-Home Project  
 ### Word Document Redaction Add-in
 
 This project is a Microsoft Word add-in built with **TypeScript, React, and Vite**.  
