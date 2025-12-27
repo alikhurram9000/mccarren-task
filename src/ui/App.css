@@ -1,0 +1,39 @@
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --card2: #f1f5f9;
+  --text: #1e293b;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --good: #d1fae5;
+  --warn: #fef3c7;
+  --bad: #fee2e2;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  background: linear-gradient(135deg, #dbeafe 0%, #f8fafc 50%, #fef3c7 100%);
+  color: var(--text);
+}
+
+.shell {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0;
+  letter-spacing: 0.3px;
+  font-weight: 700;
+  color: var(--text);
+}
