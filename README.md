@@ -23,7 +23,7 @@ All changes are logged and visible in Word’s review panel.
 
 ## 🔍 What gets redacted
 
-The engine detects and redacts all of the following:
+The add-in detects and redacts all of the following:
 
 | Category | Examples |
 |--------|--------|
@@ -40,7 +40,7 @@ The engine detects and redacts all of the following:
 | **Birthdates** | `03/15/1985`, `3-15-1985` |
 | **Addresses** | Street-style postal addresses |
 
-The redaction engine is format-tolerant and works across tables, paragraphs, and mixed formatting.
+The redaction add-in is format-tolerant and works across tables, paragraphs, and mixed formatting.
 
 ---
 
