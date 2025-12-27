@@ -61,6 +61,9 @@ Only **two commands** are needed.
 ### 1️⃣ Install dependencies
 ```bash
 npm install
+```
 
 ### 2️⃣ Start the add-in
+```bash
 npm start
+```
